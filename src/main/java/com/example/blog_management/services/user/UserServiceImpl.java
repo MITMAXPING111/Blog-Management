@@ -10,13 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.example.blog_management.dtos.requests.blogs.ReqBlog;
 import com.example.blog_management.dtos.requests.users.ReqUser;
 import com.example.blog_management.dtos.requests.users.ReqUserId;
 import com.example.blog_management.dtos.responses.RestResponse;
-import com.example.blog_management.dtos.responses.blogs.ResBlog;
 import com.example.blog_management.dtos.responses.users.ResUser;
-import com.example.blog_management.entities.Blog;
 import com.example.blog_management.entities.User;
 import com.example.blog_management.repositories.UserRepo;
 
