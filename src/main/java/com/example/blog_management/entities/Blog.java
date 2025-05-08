@@ -36,6 +36,13 @@ public class Blog {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToMany
+    @JoinTable(name = "blog_likes", // tên bảng trung gian
+            joinColumns = @JoinColumn(name = "blog_id"), // cột tham chiếu Blog
+            inverseJoinColumns = @JoinColumn(name = "user_id") // cột tham chiếu User
+    )
+    private List<User> likedUsers = new ArrayList<>();
+
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 

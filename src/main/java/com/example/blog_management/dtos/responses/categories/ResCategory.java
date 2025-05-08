@@ -8,16 +8,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Data
 public class ResCategory {
     private Integer id;
     private String name;
     private String description;
+
     private String createBy;
     private LocalDateTime createAt;
     private String updateBy;
     private LocalDateTime updateAt;
-
-    public ResCategory() {
-    }
 }

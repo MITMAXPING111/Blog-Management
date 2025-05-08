@@ -11,15 +11,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ReqComment {
-    private Integer id; // Sử dụng Integer
+    private Integer id;
+    @Lob
     private String content;
-    private String user_id; // Nhận chuỗi từ JSON
-    private String blog_id; // Nhận chuỗi từ JSON
+    private ReqUserId reqUserId;
+    private ReqBlogId reqBlogId;
     private String createBy;
     private LocalDateTime createAt;
     private String updateBy;
     private LocalDateTime updateAt;
-    private ReqUserId reqUserId;
-    private ReqBlogId reqBlogId;
-
 }
