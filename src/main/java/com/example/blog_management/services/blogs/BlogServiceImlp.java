@@ -15,12 +15,20 @@ import com.example.blog_management.dtos.responses.RestResponse;
 import com.example.blog_management.dtos.responses.blogs.ResBlog;
 import com.example.blog_management.entities.Blog;
 import com.example.blog_management.repositories.BlogRepo;
+import com.example.blog_management.repositories.CategoryRepo;
+import com.example.blog_management.repositories.UserRepo;
 
 @Service
 public class BlogServiceImlp implements BlogService {
+    @Autowired
+    UserRepo userRepo;
+
+    @Autowired
+    CategoryRepo categoryRepo;
 
     @Autowired
     BlogRepo blogRepo;
+
     @Autowired
     ModelMapper modelMapper;
 
@@ -83,7 +91,6 @@ public class BlogServiceImlp implements BlogService {
                 req.setCreateAt(blog.getCreateAt());
                 req.setCreateBy(blog.getCreateBy());
                 req.setUpdateAt(LocalDateTime.now());
-
                 req.setUpdateBy("admin@gmail.com");
                 update = true;
             } else {
@@ -92,6 +99,15 @@ public class BlogServiceImlp implements BlogService {
             }
 
             Blog blog = modelMapper.map(req, Blog.class);
+
+            if (req.getUser() != null && req.getUser().getId() != null) {
+                blog.setUser(userRepo.findById(req.getUser().getId()).orElse(null));
+            }
+
+            if (req.getCategory() != null && req.getCategory().getId() != null) {
+                blog.setCategory(categoryRepo.findById(req.getCategory().getId()).orElse(null));
+            }
+
             blogRepo.save(blog);
             ResBlog result = modelMapper.map(blog, ResBlog.class);
 

@@ -1,6 +1,8 @@
 package com.example.blog_management.dtos.requests.blogs;
 
 import com.example.blog_management.dtos.requests.categories.ReqCategoryId;
+import com.example.blog_management.dtos.requests.users.ReqUserId;
+
 import jakarta.persistence.Lob;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +17,11 @@ public class ReqBlog {
     @Lob
     private String content;
     private ReqCategoryId categoryId;
+    private ReqUserId userId;
     private String createBy;
     private LocalDateTime createAt;
     private String updateBy;
     private LocalDateTime updateAt;
     private ReqCategoryId category;
+    private ReqUserId user;
 }

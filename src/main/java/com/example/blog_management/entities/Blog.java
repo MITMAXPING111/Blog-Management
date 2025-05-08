@@ -39,21 +39,4 @@ public class Blog {
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
-    // @PrePersist
-    // public void handleBeforeCreate() {
-    // this.createdBy = SecurityUtil.getCurrentUserLogin().isPresent() == true
-    // ? SecurityUtil.getCurrentUserLogin().get()
-    // : "";
-    // ;
-    // this.createdAt = Instant.now();
-
-    // }
-
-    // @PreUpdate
-    // public void handleBeforeUpdate() {
-    // this.updatedBy = SecurityUtil.getCurrentUserLogin().isPresent() == true
-    // ? SecurityUtil.getCurrentUserLogin().get()
-    // : "";
-
-    // this.updatedAt = Instant.now();
 }

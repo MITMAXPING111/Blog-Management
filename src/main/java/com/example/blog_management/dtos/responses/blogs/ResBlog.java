@@ -3,6 +3,7 @@ package com.example.blog_management.dtos.responses.blogs;
 import java.time.LocalDateTime;
 
 import com.example.blog_management.dtos.responses.categories.ResCategory;
+import com.example.blog_management.dtos.responses.users.ResUser;
 
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +17,7 @@ public class ResBlog {
     private String title;
     private String content;
     private ResCategory category;
+    private ResUser user;
     private String createBy;
     private LocalDateTime createAt;
     private String updateBy;

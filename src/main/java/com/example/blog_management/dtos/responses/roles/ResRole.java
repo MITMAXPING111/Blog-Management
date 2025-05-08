@@ -1,9 +1,7 @@
 package com.example.blog_management.dtos.responses.roles;
 
-import com.example.blog_management.constants.PermissionEnum;
 import com.example.blog_management.constants.RoleEnum;
 import com.example.blog_management.dtos.responses.permissions.ResPermission;
-import com.example.blog_management.entities.Permission;
 import lombok.Getter;
 import lombok.Setter;
 
