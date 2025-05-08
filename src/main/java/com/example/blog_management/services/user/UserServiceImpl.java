@@ -160,6 +160,13 @@ public class UserServiceImpl implements UserService {
             for (Role role : user.getRoles()) {
                 ResRole resRole = modelMapper.map(role, ResRole.class);
 
+                Set<ResPermission> resPermissions = new HashSet<>();
+                for (Permission permission : role.getPermissions()) {
+                    ResPermission resPermission = modelMapper.map(permission, ResPermission.class);
+                    resPermissions.add(resPermission);
+                }
+                resRole.setResPermissions(resPermissions);
+
                 resRoles.add(resRole);
             }
 
